@@ -16,3 +16,60 @@ app.listen(port, () => {
 // Data model: array to store data for simplicity
 let tasks = [];
 let taskIdCounter = 1;
+
+///////////////
+// Creating API endpoints
+///////////////
+
+// get all tasks
+app.get('/tasks', (req, res) => {
+    res.json(tasks);
+});
+
+// add a new task
+app.post('/tasks', (req, res) => {
+    const newTask = {
+        id: taskIdCounter++,
+        title: req.body.title,
+        description: req.body.description,
+        completed: false,
+    };
+
+    tasks.push(newTask);
+    res.json(newTask);
+});
+
+// Update a task
+app.put('/tasks/:id', (req, res) => {
+    const taskId = parseInt(req.params.id);
+    const taskToUpdate = tasks.find((task) => task.id === taskId);
+
+    if (!taskToUpdate) {
+        return res.status(404).json({ error: 'Task not found' });
+    }
+
+    taskToUpdate.title = req.body.title || taskToUpdate.title;
+    taskToUpdate.description = req.body.description || taskToUpdate.description;
+
+    res.json(taskToUpdate);
+});
+
+// Delete a task
+app.delete('/tasks/:id', (req, res) => {
+    const taskId = parseInt(req.params.id);
+    tasks = tasks.filter((task) => task.id !== taskId);
+    res.json({ message: 'Task deleted successfully' });
+});
+
+  // Mark a task as complete
+app.put('/tasks/:id/complete', (req, res) => {
+    const taskId = parseInt(req.params.id);
+    const taskToComplete = tasks.find((task) => task.id === taskId);
+
+    if (!taskToComplete) {
+        return res.status(404).json({ error: 'Task not found' });
+    }
+
+    taskToComplete.completed = true;
+    res.json(taskToComplete);
+});
