@@ -1,3 +1,22 @@
 .vercel
+
+# Ignore node_modules directory
+node_modules/
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+
+# Ignore personal configuration files
+config.json
+
+# Ignore environment-specific files
 .env
-venv
+
+# Ignore build artifacts
+build/
+
+# Ignore editor-specific files
+.vscode/
