@@ -73,3 +73,10 @@ app.put('/tasks/:id/complete', (req, res) => {
     taskToComplete.completed = true;
     res.json(taskToComplete);
 });
+
+// end of endpoints
+
+// start the server
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
