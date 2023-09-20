@@ -19,26 +19,7 @@ app.listen(port, () => {
 
 // Data model: array to store data for simplicity
 let taskIdCounter = 1;
-let tasks = [
-    {
-        id: taskIdCounter++,
-        title: 'Sample Task 1',
-        description: 'This is the first sample task.',
-        completed: false,
-    },
-    {
-        id: taskIdCounter++,
-        title: 'Sample Task 2',
-        description: 'This is the second sample task.',
-        completed: true,
-    },
-    {
-        id: taskIdCounter++,
-        title: 'Sample Task 3',
-        description: 'This is the third sample task.',
-        completed: false,
-    },
-];
+let tasks = [];
 
 
 ///////////////
