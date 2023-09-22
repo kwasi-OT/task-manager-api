@@ -7,7 +7,7 @@ const port = process.env.PORT || 4000;
 
 // define the middleware
 app.use(bodyParser.json());
-app.use(cors());
+// app.use(cors());
 
 app.get('/home', (req, res) => {
     res.status(200).json('Welcome, your app is working well');
