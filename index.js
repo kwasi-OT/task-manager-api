@@ -2,9 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const pgp = require('pg-promise')();
-// const {db, pgp} = require(db); //import PostgreSQL configuration
-import { db } from '@vercel/postgres';
+const {db, pgp} = require('./db'); //import PostgreSQL configuration
 const port = process.env.PORT || 4000;
 
 // define the middleware
