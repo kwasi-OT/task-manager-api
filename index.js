@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const cors = require('cors');
+// const cors = require('cors');
 const {db, pgp} = require('./db'); //import PostgreSQL configuration
 const port = process.env.PORT || 4000;
 
