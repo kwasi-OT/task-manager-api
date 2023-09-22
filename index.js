@@ -1,13 +1,13 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-// const cors = require('cors');
+const cors = require('cors');
 const {db, pgp} = require('./db'); //import PostgreSQL configuration
 const port = process.env.PORT || 4000;
 
 // define the middleware
 app.use(bodyParser.json());
-// app.use(cors());
+app.use(cors());
 
 app.get('/home', (req, res) => {
     res.status(200).json('Welcome, your app is working well');
